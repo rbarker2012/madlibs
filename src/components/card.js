@@ -28,24 +28,24 @@ class Card extends Component {
     constructor() {
         super()
 
-        this.state = INITIAL_STATE
+        this.state = INITIAL_STATE;
 
-        this.handleInputChange = this.handleInputChange.bind(this)
-        this.handleFormSubmit = this.handleFormSubmit.bind(this)
-    }
+        this.handleInputChange = this.handleInputChange.bind(this);
+        this.handleFormSubmit = this.handleFormSubmit.bind(this);
+    } 
 
     handleInputChange(event) {
-        this.setState({ [event.target.name]: event.target.value})
+        this.setState({ [event.target.name]: event.target.value })
     }
 
-    handleFormSubmit (event) {
+    handleFormSubmit(event) {
         event.preventDefault()
 
         if(this.state.contentVisible) {
             this.setState(INITIAL_STATE)
         } else {
             this.setState({ contentVisible: true })
-        }  
+        }
     }
 
     render() {
@@ -71,13 +71,13 @@ class Card extends Component {
             {title: 'Celebrity', state: this.state.celebFour, name: 'celebFour'},
             {title: 'Adjective', state: this.state.adjectiveFive, name: 'adjectiveFive'},
         ]
-    
+
         return (
             <form onSubmit={this.handleFormSubmit} className="card">
                 <div className="card__inputs">
                 {
-                    inputData.map((data, index) => { 
-                        return Input( (data), this.handleInputChange, index ) 
+                    inputData.map((data, index) => {
+                        return Input( (data), this.handleInputChange, index) 
                     })
                 }
                 </div>
